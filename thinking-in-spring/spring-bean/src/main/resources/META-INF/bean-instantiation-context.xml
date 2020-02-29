@@ -4,15 +4,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-   <!-- 静态方法实例化 Bean -->
+    <!-- 静态方法实例化 Bean -->
     <bean id="user-by-static-method" class="org.geekbang.thinking.in.spring.ioc.overview.domain.User"
           factory-method="createUser"/>
 
-   <!-- 实例（Bean）方法实例化 Bean -->
-   <bean id="user-by-instance-method" factory-bean="userFactory" factory-method="createUser"/>
+    <!-- 通过工厂实例化 实例（Bean）方法实例化 Bean -->
+    <bean id="user-by-instance-method" factory-bean="userFactory" factory-method="createUser"/>
 
-   <!-- FactoryBean实例化 Bean -->
-   <bean id="user-by-factory-bean" class="org.geekbang.thinking.in.spring.bean.factory.UserFactoryBean" />
+    <!-- FactoryBean实例化 Bean -->
+    <bean id="user-by-factory-bean" class="org.geekbang.thinking.in.spring.bean.factory.UserFactoryBean"/>
 
+    <!-- 定义了一个工厂-->
     <bean id="userFactory" class="org.geekbang.thinking.in.spring.bean.factory.DefaultUserFactory"/>
 </beans>
