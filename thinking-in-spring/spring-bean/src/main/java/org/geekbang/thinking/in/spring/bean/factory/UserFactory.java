@@ -26,7 +26,16 @@ import org.geekbang.thinking.in.spring.ioc.overview.domain.User;
  */
 public interface UserFactory {
 
-    default User createUser() {
-        return User.createUser();
-    }
+	default User createUser() {
+		return User.createUser();
+	}
+
+	default void initUserFactory() {
+
+	}
+
+
+	default void doDestroy() {
+
+	}
 }
