@@ -24,6 +24,9 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
  *
  * @author <a href="mailto:mercyblitz@gmail.com">Mercy</a>
  * @since
+ *
+ * 直接方式
+ *
  */
 public class AutoWiringByNameDependencySetterInjectionDemo {
 

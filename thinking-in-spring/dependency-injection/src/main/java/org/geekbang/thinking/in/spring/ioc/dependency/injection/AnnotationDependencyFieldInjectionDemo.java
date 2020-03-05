@@ -36,7 +36,7 @@ public class AnnotationDependencyFieldInjectionDemo {
     private
 //    static // @Autowired 会忽略掉静态字段
             UserHolder userHolder;
-
+    //resource也可以注解
     @Resource
     private UserHolder userHolder2;
 
@@ -56,7 +56,9 @@ public class AnnotationDependencyFieldInjectionDemo {
         // 启动 Spring 应用上下文
         applicationContext.refresh();
 
-        // 依赖查找 AnnotationDependencyFieldInjectionDemo Bean
+        //依赖查找 AnnotationDependencyFieldInjectionDemo Bean
+        //本类对象
+        //本身自己就是个bean
         AnnotationDependencyFieldInjectionDemo demo = applicationContext.getBean(AnnotationDependencyFieldInjectionDemo.class);
 
         // @Autowired 字段关联
