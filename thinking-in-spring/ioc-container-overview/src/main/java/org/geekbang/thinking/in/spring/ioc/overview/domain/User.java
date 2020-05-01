@@ -22,8 +22,11 @@ import org.springframework.core.io.Resource;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * 用户类
@@ -44,6 +47,12 @@ public class User implements BeanNameAware {
     private List<City> lifeCities;
 
     private Resource configFileLocation;
+
+    private Company company;
+
+    private Properties context;
+
+    private String contextAsText;
 
     /**
      * 当前 Bean 的名称
@@ -98,16 +107,12 @@ public class User implements BeanNameAware {
         this.lifeCities = lifeCities;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", city=" + city +
-                ", workCities=" + Arrays.toString(workCities) +
-                ", lifeCities=" + lifeCities +
-                ", configFileLocation=" + configFileLocation +
-                '}';
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     public static User createUser() {
@@ -130,5 +135,37 @@ public class User implements BeanNameAware {
     @Override
     public void setBeanName(String name) {
         this.beanName = name;
+    }
+
+    public Properties getContext() {
+        return context;
+    }
+
+    public void setContext(Properties context) {
+        this.context = context;
+    }
+
+    public String getContextAsText() {
+        return contextAsText;
+    }
+
+    public void setContextAsText(String contextAsText) {
+        this.contextAsText = contextAsText;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", city=" + city +
+                ", workCities=" + Arrays.toString(workCities) +
+                ", lifeCities=" + lifeCities +
+                ", configFileLocation=" + configFileLocation +
+                ", company=" + company +
+                ", context=" + context +
+                ", contextAsText='" + contextAsText + '\'' +
+                ", beanName='" + beanName + '\'' +
+                '}';
     }
 }
