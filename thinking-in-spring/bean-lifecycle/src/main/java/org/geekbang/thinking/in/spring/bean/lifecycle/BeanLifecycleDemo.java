@@ -48,21 +48,21 @@ public class BeanLifecycleDemo {
         beanFactory.preInstantiateSingletons();
 
         // 通过 Bean Id 和类型进行依赖查找
-        User user = beanFactory.getBean("user", User.class);
-        System.out.println(user);
-
-        User superUser = beanFactory.getBean("superUser", User.class);
-        System.out.println(superUser);
-
-        // 构造器注入按照类型注入，resolveDependency
-        UserHolder userHolder = beanFactory.getBean("userHolder", UserHolder.class);
-
-        System.out.println(userHolder);
+//        User user = beanFactory.getBean("user", User.class);
+//        System.out.println(user);
+//
+//        User superUser = beanFactory.getBean("superUser", User.class);
+//        System.out.println(superUser);
+//
+//        // 构造器注入按照类型注入，resolveDependency
+//        UserHolder userHolder = beanFactory.getBean("userHolder", UserHolder.class);
+//
+//        System.out.println(userHolder);
 
         // 执行 Bean 销毁（容器内）
-        beanFactory.destroyBean("userHolder", userHolder);
+//        beanFactory.destroyBean("userHolder", userHolder);
         // Bean 销毁并不意味着 Bean 垃圾回收了
-        System.out.println(userHolder);
+//        System.out.println(userHolder);
 
         // 销毁 BeanFactory 中的单例 Bean
         beanFactory.destroySingletons();

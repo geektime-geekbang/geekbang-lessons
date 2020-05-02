@@ -31,11 +31,13 @@ import org.springframework.core.io.Resource;
 @Configuration
 @PropertySource(value = "META-INF/default.properties",encoding="UTF-8")
 public class ExternalConfigurationDependencySourceDemo {
-
+    /**
+     * 如果没值默认是是-1
+     */
     @Value("${user.id:-1}")
     private Long id;
 
-    @Value("${usr.name}")
+    @Value("${usr.name:hello}")
     private String name;
 
     @Value("${user.resource:classpath://default.properties}")
