@@ -38,7 +38,7 @@ public class ApiDependencySetterInjectionDemo {
 
         // 生成 UserHolder 的 BeanDefinition
         BeanDefinition userHolderBeanDefinition = createUserHolderBeanDefinition();
-        // 注册 UserHolder 的 BeanDefinition
+        // 注册 UserHolder 的 BeanDefinition  application.注册bean
         applicationContext.registerBeanDefinition("userHolder", userHolderBeanDefinition);
 
         XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(applicationContext);

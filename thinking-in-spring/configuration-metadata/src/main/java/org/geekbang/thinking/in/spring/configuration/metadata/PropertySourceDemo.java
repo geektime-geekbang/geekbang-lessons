@@ -58,7 +58,7 @@ public class PropertySourceDemo {
         Map<String, Object> propertiesSource = new HashMap<>();
         propertiesSource.put("user.name", "xiaomage");
         org.springframework.core.env.PropertySource propertySource = new MapPropertySource("first-property-source", propertiesSource);
-        context.getEnvironment().getPropertySources().addFirst(propertySource);
+//        context.getEnvironment().getPropertySources().addFirst(propertySource);
 
         // 注册当前类作为 Configuration Class
         context.register(PropertySourceDemo.class);

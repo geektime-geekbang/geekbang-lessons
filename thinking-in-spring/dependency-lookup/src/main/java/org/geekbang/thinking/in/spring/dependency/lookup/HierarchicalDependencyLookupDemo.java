@@ -68,7 +68,7 @@ public class HierarchicalDependencyLookupDemo {
     private static boolean containsBean(HierarchicalBeanFactory beanFactory, String beanName) {
         BeanFactory parentBeanFactory = beanFactory.getParentBeanFactory();
         if (parentBeanFactory instanceof HierarchicalBeanFactory) {
-            HierarchicalBeanFactory parentHierarchicalBeanFactory = HierarchicalBeanFactory.class.cast(parentBeanFactory);
+            HierarchicalBeanFactory parentHierarchicalBeanFactory = (HierarchicalBeanFactory) parentBeanFactory;
             if (containsBean(parentHierarchicalBeanFactory, beanName)) {
                 return true;
             }

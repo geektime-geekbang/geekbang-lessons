@@ -35,7 +35,7 @@ public class MyDestructionAwareBeanPostProcessor implements DestructionAwareBean
             // afterSingletonsInstantiated() = The user holder V8
             // UserHolder description = "The user holder V8"
             userHolder.setDescription("The user holder V9");
-            System.out.println("postProcessBeforeDestruction() : " + userHolder.getDescription());
+            System.out.println("DestructionAwareBeanPostProcessor.postProcessBeforeDestruction() is V9");
         }
     }
 }

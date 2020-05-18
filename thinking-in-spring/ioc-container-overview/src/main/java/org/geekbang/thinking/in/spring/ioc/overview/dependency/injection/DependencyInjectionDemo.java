@@ -31,47 +31,48 @@ import org.springframework.core.env.Environment;
  */
 public class DependencyInjectionDemo {
 
-    public static void main(String[] args) {
-        // 配置 XML 配置文件
-        // 启动 Spring 应用上下文
+	public static void main(String[] args) {
+		// 配置 XML 配置文件
+		// 启动 Spring 应用上下文
 //        BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:/META-INF/dependency-injection-context.xml");
 
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/META-INF/dependency-injection-context.xml");
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:/META-INF/dependency-injection-context.xml");
 
-        // 依赖来源一：自定义 Bean
-        UserRepository userRepository = applicationContext.getBean("userRepository", UserRepository.class);
+		// 依赖来源一：自定义 Bean
+		UserRepository userRepository = applicationContext.getBean("userRepository", UserRepository.class);
 
 //        System.out.println(userRepository.getUsers());
 
-        // 依赖来源二：依赖注入（內建依赖）
-        System.out.println(userRepository.getBeanFactory());
+		// 依赖来源二：依赖注入（內建依赖）
+		System.out.println(userRepository.getBeanFactory());
 
 
-        ObjectFactory userFactory = userRepository.getObjectFactory();
+		ObjectFactory userFactory = userRepository.getObjectFactory();
 
-        System.out.println(userFactory.getObject() == applicationContext);
 
-        // 依赖查找（错误）
+		System.out.println(userFactory.getObject() == applicationContext);
+
+		// 依赖查找（错误）
 //        System.out.println(beanFactory.getBean(BeanFactory.class));
 
-        // 依赖来源三：容器內建 Bean
-        Environment environment = applicationContext.getBean(Environment.class);
-        System.out.println("获取 Environment 类型的 Bean：" + environment);
-    }
+		// 依赖来源三：容器內建 Bean
+		Environment environment = applicationContext.getBean(Environment.class);
+		System.out.println("获取 Environment 类型的 Bean：" + environment);
+	}
 
-    private static void whoIsIoCContainer(UserRepository userRepository, ApplicationContext applicationContext) {
-
-
-        // ConfigurableApplicationContext <- ApplicationContext <- BeanFactory
-
-        // ConfigurableApplicationContext#getBeanFactory()
+	private static void whoIsIoCContainer(UserRepository userRepository, ApplicationContext applicationContext) {
 
 
-        // 这个表达式为什么不会成立
-        System.out.println(userRepository.getBeanFactory() == applicationContext);
+		// ConfigurableApplicationContext <- ApplicationContext <- BeanFactory
 
-        // ApplicationContext is BeanFactory
+		// ConfigurableApplicationContext#getBeanFactory()
 
-    }
+
+		// 这个表达式为什么不会成立
+		System.out.println(userRepository.getBeanFactory() == applicationContext);
+
+		// ApplicationContext is BeanFactory
+
+	}
 
 }

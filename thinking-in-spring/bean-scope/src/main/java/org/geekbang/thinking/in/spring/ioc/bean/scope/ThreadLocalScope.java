@@ -54,8 +54,7 @@ public class ThreadLocalScope implements Scope {
             object = objectFactory.getObject();
             context.put(name, object);
         }
-
-        return object;
+         return object;
     }
 
     @NonNull

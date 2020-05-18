@@ -25,6 +25,6 @@
        </bean>
        -->
 
-    <users:user id="1" name="小马哥" city="HANGZHOU"/>
+    <users:user id="1" name="小马哥222" city="HANGZHOU"/>
 
 </beans>

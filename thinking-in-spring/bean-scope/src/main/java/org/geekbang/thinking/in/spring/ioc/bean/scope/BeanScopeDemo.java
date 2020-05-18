@@ -117,7 +117,7 @@ public class BeanScopeDemo implements DisposableBean {
         // 无论是 Singleton 还是 Prototype Bean 均会执行初始化方法回调
         // 不过仅 Singleton Bean 会执行销毁方法回调
 
-        scopedBeansByLookup(applicationContext);
+//        scopedBeansByLookup(applicationContext);
 
         scopedBeansByInjection(applicationContext);
 

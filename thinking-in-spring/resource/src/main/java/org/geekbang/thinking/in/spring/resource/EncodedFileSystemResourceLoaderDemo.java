@@ -37,16 +37,18 @@ import java.io.Reader;
  */
 public class EncodedFileSystemResourceLoaderDemo {
 
-    public static void main(String[] args) throws IOException {
-        String currentJavaFilePath = "/" + System.getProperty("user.dir") + "/thinking-in-spring/resource/src/main/java/org/geekbang/thinking/in/spring/resource/EncodedFileSystemResourceLoaderDemo.java";
-        // 新建一个 FileSystemResourceLoader 对象
-        FileSystemResourceLoader resourceLoader = new FileSystemResourceLoader();
-        // FileSystemResource => WritableResource => Resource
-        Resource resource = resourceLoader.getResource(currentJavaFilePath);
-        EncodedResource encodedResource = new EncodedResource(resource, "UTF-8");
-        // 字符输入流
-        try (Reader reader = encodedResource.getReader()) {
-            System.out.println(IOUtils.toString(reader));
-        }
-    }
+	public static void main(String[] args) throws IOException {
+		String currentJavaFilePath = "/" + System.getProperty("user.dir")
+				+ "/resource/src/main/java/org/geekbang/thinking/in/spring/resource/EncodedFileSystemResourceLoaderDemo.java";
+		System.out.println(currentJavaFilePath);
+		// 新建一个 FileSystemResourceLoader 对象
+		FileSystemResourceLoader resourceLoader = new FileSystemResourceLoader();
+		// FileSystemResource => WritableResource => Resource
+		Resource resource = resourceLoader.getResource(currentJavaFilePath);
+		EncodedResource encodedResource = new EncodedResource(resource, "UTF-8");
+		// 字符输入流
+		try (Reader reader = encodedResource.getReader()) {
+			System.out.println(IOUtils.toString(reader));
+		}
+	}
 }

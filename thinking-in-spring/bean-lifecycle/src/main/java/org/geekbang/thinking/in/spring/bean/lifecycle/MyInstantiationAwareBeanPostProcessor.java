@@ -46,7 +46,7 @@ class MyInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPos
         if (ObjectUtils.nullSafeEquals("user", beanName) && User.class.equals(bean.getClass())) {
             User user = (User) bean;
             user.setId(2L);
-            user.setName("mercyblitz");
+            user.setName("caoc");
             // "user" 对象不允许属性赋值（填入）（配置元信息 -> 属性值）
             return false;
         }
@@ -81,8 +81,10 @@ class MyInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPos
                 // PropertyValue value 是不可变的
 //                    PropertyValue propertyValue = propertyValues.getPropertyValue("description");
                 propertyValues.removePropertyValue("description");
+                System.out.println("InstantiationAwareBeanPostProcessor.postProcessProperties() is V2");
                 propertyValues.addPropertyValue("description", "The user holder V2");
             }
+
 
             return propertyValues;
         }
@@ -94,6 +96,7 @@ class MyInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPos
         if (ObjectUtils.nullSafeEquals("userHolder", beanName) && UserHolder.class.equals(bean.getClass())) {
             UserHolder userHolder = (UserHolder) bean;
             // UserHolder description = "The user holder V2"
+            System.out.println("BeanPostProcessor.postProcessBeforeInitialization() is V3");
             userHolder.setDescription("The user holder V3");
         }
         return bean;
@@ -106,6 +109,7 @@ class MyInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPos
             // init() = The user holder V6
             // UserHolder description = "The user holder V6"
             userHolder.setDescription("The user holder V7");
+            System.out.println("BeanPostProcessor.postProcessAfterInitialization is V7");
         }
         return bean;
     }
