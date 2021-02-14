@@ -125,7 +125,8 @@ public class DynamicResourceMessageSource extends AbstractMessageSource implemen
                                 // 处理为绝对路径
                                 Path filePath = dirPath.resolve(fileRelativePath);
                                 File file = filePath.toFile();
-                                Properties properties = loadMessageProperties(new FileReader(file));
+                                Reader reader = new InputStreamReader(new FileInputStream(file), ENCODING);
+                                Properties properties = loadMessageProperties(reader);
                                 synchronized (messageProperties) {
                                     messageProperties.clear();
                                     messageProperties.putAll(properties);
